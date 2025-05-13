@@ -56,6 +56,9 @@
             overflow: hidden;
             position: relative;
             margin-top: 20px;
+            background-color: white;
+            padding: 15px 0;
+            border-radius: 8px;
         }
         
         .logo-scroll {
@@ -82,19 +85,60 @@
             border: 1px solid #e5e7eb;
             border-radius: 0.375rem;
         }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .header-flex {
+                flex-direction: column;
+            }
+            
+            .header-content {
+                margin-left: 0;
+                margin-top: 15px;
+                text-align: center;
+            }
+            
+            .header-logo-container {
+                margin: 0 auto;
+            }
+            
+            .header-blue-line {
+                width: 100%;
+                height: 8px;
+                margin-bottom: 15px;
+            }
+            
+            .digital-clock {
+                font-size: 20px;
+            }
+            
+            .pin-form-container {
+                padding: 0 10px;
+            }
+            
+            .signature-container {
+                flex-direction: column;
+            }
+            
+            .signature-item {
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body class="bg-white min-h-screen flex flex-col">
-    <div class="container max-w-4xl mx-auto px-4 py-8">
+    <div class="container max-w-4xl mx-auto px-4 py-6 sm:py-8">
         <!-- Header with logo and blue line -->
-        <div class="flex items-start border border-gray-300 rounded-lg p-4 mb-8">
-            <div class="bg-primary w-12 h-32"></div>
-            <div class="ml-4 flex-1">
-                <div class="flex items-start">
-                    <img src="https://pfst.cf2.poecdn.net/base/image/68f67fe4099a2c042496ff6aff0927b800c6c8bca31886061f9a03af409b851f" alt="Justice Minds Logo" class="w-28 h-28 object-contain">
-                    <div class="ml-6 mt-2">
-                        <h1 class="text-2xl font-serif font-bold text-primary tracking-wide">JUSTICE MINDS</h1>
-                        <h2 class="text-xl font-serif font-bold text-primary mt-1">FORENSIC INTELLIGENCE</h2>
+        <div class="flex items-start border border-gray-300 rounded-lg p-4 mb-6 sm:mb-8 header-flex">
+            <div class="bg-primary w-12 h-32 header-blue-line"></div>
+            <div class="ml-4 flex-1 header-content">
+                <div class="flex items-start flex-col sm:flex-row">
+                    <div class="header-logo-container mx-auto sm:mx-0">
+                        <img src="https://pfst.cf2.poecdn.net/base/image/68f67fe4099a2c042496ff6aff0927b800c6c8bca31886061f9a03af409b851f" alt="Justice Minds Logo" class="w-28 h-28 object-contain">
+                    </div>
+                    <div class="ml-0 sm:ml-6 mt-4 sm:mt-2 text-center sm:text-left">
+                        <h1 class="text-xl sm:text-2xl font-serif font-bold text-primary tracking-wide">JUSTICE MINDS</h1>
+                        <h2 class="text-lg sm:text-xl font-serif font-bold text-primary mt-1">FORENSIC INTELLIGENCE</h2>
                         <p class="text-sm font-medium text-primary mt-1">LONDON, UNITED KINGDOM</p>
                         <p class="text-xs text-gray-600 mt-2">PRIVATE INVESTIGATIONS | DATA DRIVEN | COMPUTER SCIENCE | PSYCHOLOGY | LAW | TRUTH</p>
                     </div>
@@ -103,17 +147,17 @@
         </div>
 
         <!-- Main content -->
-        <div class="text-center mb-8">
+        <div class="text-center mb-6 sm:mb-8">
             <div class="main-logo mx-auto">
                 <img src="https://pfst.cf2.poecdn.net/base/image/68f67fe4099a2c042496ff6aff0927b800c6c8bca31886061f9a03af409b851f" alt="Justice Minds Forensic Intelligence Logo" class="w-full h-auto">
             </div>
             <p class="text-sm text-gray-600 mt-2">Company Register 16331423</p>
         </div>
 
-        <h2 class="text-2xl font-serif font-bold text-primary text-center mt-8 mb-2">JUSTICE MINDS FORENSIC INTELLIGENCE<sup>©</sup></h2>
+        <h2 class="text-xl sm:text-2xl font-serif font-bold text-primary text-center mt-6 sm:mt-8 mb-2">JUSTICE MINDS FORENSIC INTELLIGENCE<sup>©</sup></h2>
         
-        <p class="text-xs text-gray-700 text-center mb-4">
-            FACILITATED BY 20 NATIONAL AND INTERNATIONAL SCHOLARS IN OF BUSINESS ADMINISTRATION (MBA), MASTERS SPANNING DATA ANALYTICS,<br>
+        <p class="text-xs text-gray-700 text-center mb-4 px-2">
+            FACILITATED BY 20 NATIONAL AND INTERNATIONAL SCHOLARS IN OF BUSINESS ADMINISTRATION (MBA), MASTERS SPANNING DATA ANALYTICS,
             COMPUTER SCIENCE, BUSINESS ADMINISTRATION, PSYCHOLOGY, LAW, AND FORENSIC INTELLIGENCE
         </p>
 
@@ -138,7 +182,7 @@
         <div class="divider"></div>
 
         <!-- PIN input form -->
-        <div class="max-w-md mx-auto">
+        <div class="max-w-md mx-auto pin-form-container">
             <form id="pin-form" class="mb-4">
                 <label for="pin-input" class="block text-sm font-medium text-gray-700 mb-2">Security PIN</label>
                 <div class="relative">
@@ -173,12 +217,12 @@
                 </button>
             </form>
 
-            <div class="flex justify-between text-xs text-gray-700 mt-6">
-                <div>
+            <div class="flex flex-col sm:flex-row justify-between text-xs text-gray-700 mt-6">
+                <div class="mb-3 sm:mb-0">
                     <p><span class="font-medium">Company Number:</span> 16331423</p>
                     <p><span class="font-medium">Incorporated:</span> 20th March 2025</p>
                 </div>
-                <div class="text-right">
+                <div class="text-left sm:text-right">
                     <p>+44 (0)7714 303099</p>
                     <p>justice@justice-minds.com</p>
                 </div>
@@ -209,16 +253,16 @@
             <div class="text-center text-sm text-gray-600 italic my-4">
                 [OFFICIAL SEAL OF THE SUPREME COURT OF THE UNITED KINGDOM]
             </div>
-            <div class="flex justify-between text-center mt-6 mb-4">
-                <div class="w-1/3">
+            <div class="flex flex-col sm:flex-row justify-between text-center mt-6 mb-4 signature-container">
+                <div class="w-full sm:w-1/3 mb-4 sm:mb-0 signature-item">
                     <div class="border-t border-gray-400 mx-auto" style="width: 120px;"></div>
                     <p class="text-xs mt-1">President of the Supreme Court</p>
                 </div>
-                <div class="w-1/3">
+                <div class="w-full sm:w-1/3 mb-4 sm:mb-0 signature-item">
                     <div class="border-t border-gray-400 mx-auto" style="width: 120px;"></div>
                     <p class="text-xs mt-1">Deputy President</p>
                 </div>
-                <div class="w-1/3">
+                <div class="w-full sm:w-1/3 signature-item">
                     <div class="border-t border-gray-400 mx-auto" style="width: 120px;"></div>
                     <p class="text-xs mt-1">Justice</p>
                 </div>
@@ -270,15 +314,28 @@
             setInterval(updateClock, 1000);
             
             // Set up the logo scroll
-            // Create logo elements using the tranbackoogo.png image
-            for (let i = 0; i < 10; i++) {
+            // Array of logo sources - using multiple different logos
+            const logoSources = [
+                'tranbackoogo.png',
+                'https://upload.wikimedia.org/wikipedia/en/thumb/0/03/NHS_England_logo.svg/1200px-NHS_England_logo.svg.png',
+                'https://assets.publishing.service.gov.uk/media/61e6c95de90e070442c2a576/home-office-uk-gov-logo-960w.jpg',
+                'https://www.creativelancashire.org/wp-content/uploads/2018/04/Uclan_logo.png',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/NSPCC_logo.svg/1200px-NSPCC_logo.svg.png',
+                'https://www.law.ac.uk/app/uploads/2018/09/logo-social.jpg',
+                'https://1000logos.net/wp-content/uploads/2021/03/UAL-logo.png',
+                'https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Cardiff_University_logo.svg/1200px-Cardiff_University_logo.svg.png',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/BBC_logo.svg/1200px-BBC_logo.svg.png'
+            ];
+            
+            // Create logo elements
+            logoSources.forEach(src => {
                 const logoImg = document.createElement('img');
-                logoImg.src = 'tranbackoogo.png';
+                logoImg.src = src;
                 logoImg.alt = 'Partner Logo';
                 logoImg.style.height = '40px';
-                logoImg.style.marginRight = '20px';
+                logoImg.style.marginRight = '30px';
                 logoScroll.appendChild(logoImg);
-            }
+            });
             
             // Clone the logos to create a seamless scroll
             const logoElements = logoScroll.innerHTML;
@@ -335,15 +392,15 @@
                                     
                                     <h3 class="text-center font-serif font-bold text-primary text-lg mb-3">SYSTEMIC CONSTRUCTIVE ERASURE</h3>
                                     
-                                    <div class="grid grid-cols-2 gap-4 mb-4">
-                                        <div class="border-r border-gray-300 pr-4">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                                        <div class="border-b sm:border-b-0 sm:border-r border-gray-300 pb-4 sm:pb-0 sm:pr-4">
                                             <h3 class="font-medium text-sm text-primary mb-2">COMPANY REGISTRATION</h3>
                                             <p class="text-xs text-gray-700 mb-1"><strong>Company Name:</strong> JUSTICE MINDS FORENSIC INTELLIGENCE LTD</p>
                                             <p class="text-xs text-gray-700 mb-1"><strong>Company Number:</strong> 16331423</p>
                                             <p class="text-xs text-gray-700 mb-1"><strong>Incorporated:</strong> 20th March 2025</p>
                                             <p class="text-xs text-gray-700"><strong>Issued by:</strong> Companies House, Cardiff</p>
                                         </div>
-                                        <div>
+                                        <div class="pt-4 sm:pt-0">
                                             <h3 class="font-medium text-sm text-primary mb-2">DATA PROTECTION</h3>
                                             <p class="text-xs text-gray-700 mb-1"><strong>Registration:</strong> ZB896365</p>
                                             <p class="text-xs text-gray-700 mb-1"><strong>Date Registered:</strong> 07 May 2025</p>
@@ -361,7 +418,7 @@
                                     </div>
                                     
                                     <div class="text-center my-4">
-                                        <a href="#" class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded text-sm">
+                                        <a href="supreme-court-declaration.html" class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded text-sm">
                                             ACCESS SECURE DATABASE
                                         </a>
                                     </div>
