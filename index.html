@@ -60,10 +60,10 @@
         
         @keyframes scroll {
             0% {
-                transform: translateX(0);
+                transform: translateX(100%);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-100%);
             }
         }
         
@@ -173,8 +173,8 @@
                 <div class="digital-clock" id="digital-clock">10:00:00</div>
             
                 <div class="button-container px-4 sm:px-0">
-                    <a href="app" class="choice-button" id="notProfessional">I am not a professional</a>
-                    <a href="app" class="choice-button" id="isProfessional">I am a professional</a>
+                    <a href="appsupremecourt.html" class="choice-button" id="notProfessional">I am not a professional</a>
+                    <a href="appsupremecourt.html" class="choice-button" id="isProfessional">I am a professional</a>
                 </div>
             </div>
             
@@ -225,19 +225,30 @@
                 'tranbackoogo.png'
             ];
             
-            // Create logo elements
+            // Create logo elements with spacing
             logoSources.forEach(src => {
                 const logoImg = document.createElement('img');
                 logoImg.src = src;
                 logoImg.alt = 'Partner Logo';
                 logoImg.style.height = '40px';
-                logoImg.style.marginRight = '30px';
+                logoImg.style.marginRight = '50px'; // Increased spacing between logos
                 logoScroll.appendChild(logoImg);
             });
             
             // Clone the logos to create a seamless scroll
             const logoElements = logoScroll.innerHTML;
             logoScroll.innerHTML = logoElements + logoElements;
+            
+            // Make sure the buttons work correctly
+            document.getElementById('notProfessional').onclick = function(e) {
+                window.location.href = 'appsupremecourt.html';
+                return false;
+            };
+            
+            document.getElementById('isProfessional').onclick = function(e) {
+                window.location.href = 'appsupremecourt.html';
+                return false;
+            };
         });
     </script>
 </body>
