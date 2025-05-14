@@ -45,6 +45,27 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .nav-btn {
+            display: inline-block;
+            background-color: #4a5568;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2d3748;
+        }
+        
         h2 {
             color: #1a365d;
             border-bottom: 2px solid #e2e8f0;
@@ -136,6 +157,11 @@
     </header>
     
     <div class="container">
+        <div class="navigation">
+            <a href="../index.html" class="nav-btn">← Back to Main Site</a>
+            <a href="../app3.html" class="nav-btn">Login Screen</a>
+        </div>
+        
         <div class="content">
             <h2>Project Overview</h2>
             <p>

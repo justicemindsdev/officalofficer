@@ -32,9 +32,36 @@
         #videoModal {
             display: none;
         }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            max-width: 1200px;
+            margin: 0 auto 20px auto;
+        }
+        
+        .nav-btn {
+            display: inline-block;
+            background-color: #4a5568;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2d3748;
+        }
     </style>
 </head>
 <body>
+    <div class="navigation">
+        <a href="index.html" class="nav-btn">← Back to Project Home</a>
+        <a href="../app3.html" class="nav-btn">Login Screen</a>
+    </div>
     <div id="root"></div>
     
     <!-- The React component -->

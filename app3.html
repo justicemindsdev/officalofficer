@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice Minds - Forensic Intelligence Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a1e40', /* Dark blue from logo */
+                        secondary: '#132c5e',
+                        accent: '#c6a448', /* Gold from logo */
+                        danger: '#ff0000'
+                    },
+                    fontFamily: {
+                        serif: ['Times New Roman', 'serif'],
+                        sans: ['Arial', 'Helvetica', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .header-logo {
+            height: 80px;
+        }
+        .main-logo {
+            max-width: 180px;
+            margin: 0 auto;
+        }
+        .divider {
+            height: 1px;
+            background-color: #d1d5db;
+            margin: 20px 0;
+        }
+        
+        /* Digital clock style */
+        .digital-clock {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #ff0000;
+            font-size: 18px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        /* Partner logos section */
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .partner-logos img {
+            height: 20px;
+            object-fit: contain;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col">
+    <div class="container max-w-lg mx-auto px-4 py-4">
+        <!-- Header with logo and blue line -->
+        <div class="flex items-start border border-gray-300 rounded-lg p-2 mb-6">
+            <div class="bg-primary w-2 h-24"></div>
+            <div class="ml-3 flex-1">
+                <div class="flex items-start">
+                    <img src="https://pfst.cf2.poecdn.net/base/image/68f67fe4099a2c042496ff6aff0927b800c6c8bca31886061f9a03af409b851f" alt="Justice Minds Logo" class="w-16 h-16 object-contain">
+                    <div class="ml-3">
+                        <h1 class="text-base font-serif font-bold text-primary tracking-wide">JUSTICE MINDS</h1>
+                        <h2 class="text-sm font-serif font-bold text-primary">FORENSIC INTELLIGENCE</h2>
+                        <p class="text-xs font-medium text-primary">LONDON, UNITED KINGDOM</p>
+                        <p class="text-[9px] text-gray-600 mt-1 leading-tight">PRIVATE INVESTIGATIONS | DATA DRIVEN | COMPUTER SCIENCE | PSYCHOLOGY | LAW | TRUTH</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="text-center mb-6">
+            <div class="main-logo mx-auto">
+                <img src="https://pfst.cf2.poecdn.net/base/image/68f67fe4099a2c042496ff6aff0927b800c6c8bca31886061f9a03af409b851f" alt="Justice Minds Forensic Intelligence Logo" class="w-full h-auto">
+            </div>
+            <p class="text-xs text-gray-600 mt-2">Company Register 16331423</p>
+        </div>
+
+        <h2 class="text-xl font-serif font-bold text-primary text-center mt-4 mb-2">JUSTICE MINDS FORENSIC INTELLIGENCE</h2>
+        
+        <p class="text-[10px] text-gray-700 text-center mb-4 leading-tight">
+            FACILITATED BY 20 NATIONAL AND INTERNATIONAL SCHOLARS IN OF BUSINESS ADMINISTRATION (MBA), MASTERS SPANNING DATA ANALYTICS,
+            COMPUTER SCIENCE, BUSINESS ADMINISTRATION, PSYCHOLOGY, LAW, AND FORENSIC INTELLIGENCE
+        </p>
+
+        <div class="text-center mb-4">
+            <p class="text-danger font-bold text-xs">PRIVATE AND CONFIDENTIAL</p>
+            <p class="text-danger font-bold text-xs">FOR INTENDED GOVERNMENT OFFICIALS ONLY</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="text-center text-sm text-gray-700 mb-1">
+            Pursuant to the powers vested by the Supreme Court of the United Kingdom, this portal provides access to
+        </p>
+        <p class="text-center font-bold text-primary text-sm mb-1">
+            JUSTICE MINDS FORENSIC INTELLIGENCE LTD
+        </p>
+        <p class="text-center text-sm text-gray-700 mb-2">
+            secure database.
+        </p>
+
+        <div class="digital-clock" id="digital-clock">10:00</div>
+
+        <!-- PIN input form -->
+        <div class="max-w-md mx-auto">
+            <form id="pin-form" class="mb-4">
+                <label for="email-input" class="block text-xs font-medium text-gray-700 mb-1">Email Address</label>
+                <div class="relative mb-3">
+                    <input type="email" id="email-input" autocomplete="off" class="block w-full border border-gray-300 rounded-md py-2 px-3 text-base focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Enter your email address" required="">
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <label for="pin-input" class="block text-xs font-medium text-gray-700 mb-1">Security PIN</label>
+                <div class="relative">
+                    <input type="password" id="pin-input" maxlength="4" autocomplete="off" class="block w-full border border-gray-300 rounded-md py-2 px-3 text-base focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Enter 4-digit PIN" inputmode="numeric" pattern="[0-9]*" required="">
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div id="error-message" class="mt-1 text-red-600 text-xs hidden">
+                    Invalid PIN code. Please try again.
+                </div>
+                <div id="attempt-counter" class="mt-1 text-gray-500 text-[10px]">
+                    3 attempts remaining
+                </div>
+                <button type="submit" class="mt-3 w-full bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300">
+                    AUTHENTICATE ACCESS
+                </button>
+            </form>
+
+            <div class="flex justify-between text-[10px] text-gray-700 mt-3">
+                <div>
+                    <p><span class="font-medium">Company Number:</span> 16331423</p>
+                    <p><span class="font-medium">Incorporated:</span> 20th March 2025</p>
+                </div>
+                <div class="text-right">
+                    <p>+44 (0)7714 303099</p>
+                    <p>justice@justice-minds.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="text-center text-[10px] text-gray-700">
+            <p>161-165 Borough High Street, London, SE1 1HR</p>
+            <p>May 9th 2025</p>
+        </div>
+        
+        <!-- Partner logos -->
+        <div class="partner-logos mt-8">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/NHS_England_logo.svg/1200px-NHS_England_logo.svg.png" alt="NHS">
+            <img src="https://assets.publishing.service.gov.uk/media/61e6c95de90e070442c2a576/home-office-uk-gov-logo-960w.jpg" alt="UK Government">
+            <img src="https://www.creativelancashire.org/wp-content/uploads/2018/04/Uclan_logo.png" alt="UCLAN">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/NSPCC_logo.svg/1200px-NSPCC_logo.svg.png" alt="NSPCC">
+            <img src="https://www.law.ac.uk/app/uploads/2018/09/logo-social.jpg" alt="ULaw">
+            <img src="https://1000logos.net/wp-content/uploads/2021/03/UAL-logo.png" alt="UAL">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Cardiff_University_logo.svg/1200px-Cardiff_University_logo.svg.png" alt="Cardiff University">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/BBC_logo.svg/1200px-BBC_logo.svg.png" alt="BBC">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('pin-form');
+            const pinInput = document.getElementById('pin-input');
+            const errorMessage = document.getElementById('error-message');
+            const attemptCounter = document.getElementById('attempt-counter');
+            const digitalClock = document.getElementById('digital-clock');
+            
+            // Update digital clock
+            function updateClock() {
+                const now = new Date();
+                let hours = now.getHours();
+                let minutes = now.getMinutes();
+                
+                // Add leading zeros
+                hours = hours < 10 ? '0' + hours : hours;
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                
+                digitalClock.textContent = hours + ':' + minutes;
+            }
+            
+            // Initialize clock and update every minute
+            updateClock();
+            setInterval(updateClock, 60000);
+            
+            // For this demo, the correct PIN is 9993
+            const CORRECT_PIN = '9993';
+            let attemptsRemaining = 3;
+            
+            // Force numeric input only
+            pinInput.addEventListener('input', function(e) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const emailInput = document.getElementById('email-input');
+                const enteredPin = pinInput.value;
+                const enteredEmail = emailInput.value;
+                
+                if (enteredPin === CORRECT_PIN) {
+                    // Success - PIN is correct
+                    errorMessage.classList.add('hidden');
+                    
+                    // Store the email in localStorage for logging purposes
+                    localStorage.setItem('userEmail', enteredEmail);
+                    localStorage.setItem('loginTime', new Date().toISOString());
+                    
+                    // Show success animation
+                    form.innerHTML = `
+                        <div class="text-center py-4">
+                            <div class="mb-2 text-accent font-serif font-bold text-base">OFFICIAL DECLARATION</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-500 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="text-green-600 font-medium text-base mb-1">Authentication Successful</p>
+                            <p class="text-gray-600 text-[10px] mb-1">Reference Number: SCUK-PS-2025-05-12-001</p>
+                            <p class="text-gray-600 text-xs mb-3">Pursuant to the Supreme Court of the United Kingdom, you are now granted access to the Forensic Intelligence database.</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div id="progress-bar" class="bg-green-600 h-2 rounded-full" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    const progressBar = document.getElementById('progress-bar');
+                    let width = 0;
+                    const interval = setInterval(() => {
+                        if (width >= 100) {
+                            clearInterval(interval);
+                            // Show credentials section from official certificates
+                            form.innerHTML = `
+                                <div class="p-4 relative mt-2 border border-gray-300 rounded">
+                                    <div class="absolute -top-2 right-2 bg-accent text-white text-[10px] px-2 py-0.5 rounded">
+                                        FORENSIC REPORT
+                                    </div>
+                                    <div class="bg-primary text-white py-1 px-2 text-center font-bold text-xs mb-3">
+                                        OFFICIAL REGISTRATION DETAILS
+                                    </div>
+                                    
+                                    <h3 class="text-center font-serif font-bold text-primary text-sm mb-2">SYSTEMIC CONSTRUCTIVE ERASURE</h3>
+                                    
+                                    <div class="grid grid-cols-2 gap-2 mb-3">
+                                        <div class="border-r border-gray-300 pr-2">
+                                            <h3 class="font-medium text-xs text-primary mb-1">COMPANY REGISTRATION</h3>
+                                            <p class="text-[10px] text-gray-700 mb-1"><strong>Company Name:</strong> JUSTICE MINDS FORENSIC INTELLIGENCE LTD</p>
+                                            <p class="text-[10px] text-gray-700 mb-1"><strong>Company Number:</strong> 16331423</p>
+                                            <p class="text-[10px] text-gray-700 mb-1"><strong>Incorporated:</strong> 20th March 2025</p>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium text-xs text-primary mb-1">DATA PROTECTION</h3>
+                                            <p class="text-[10px] text-gray-700 mb-1"><strong>Registration:</strong> ZB896365</p>
+                                            <p class="text-[10px] text-gray-700 mb-1"><strong>Date Registered:</strong> 07 May 2025</p>
+                                            <p class="text-[10px] text-gray-700 mb-1"><strong>Expires:</strong> 06 May 2026</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="border-t border-gray-300 pt-2 mt-2">
+                                        <h3 class="font-medium text-xs text-primary mb-1 text-center">PRIVATE AND CONFIDENTIAL</h3>
+                                        <p class="text-[10px] text-center text-danger font-bold mb-1">FOR INTENDED GOVERNMENT OFFICIALS ONLY</p>
+                                    </div>
+                                    
+                                    <div class="text-center my-3">
+                                        <a href="judicial-violations-project/judicial-violations-matrix.html" class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded text-xs">
+                                            ACCESS SECURE DATABASE
+                                        </a>
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            width += 5;
+                            progressBar.style.width = width + '%';
+                        }
+                    }, 100);
+                } else {
+                    // Failure - PIN is incorrect
+                    attemptsRemaining--;
+                    
+                    // Show error and update attempts counter
+                    errorMessage.classList.remove('hidden');
+                    
+                    if (attemptsRemaining > 0) {
+                        attemptCounter.textContent = `${attemptsRemaining} attempt${attemptsRemaining === 1 ? '' : 's'} remaining`;
+                    } else {
+                        // Lock out after 3 failed attempts
+                        pinInput.disabled = true;
+                        form.querySelector('button').disabled = true;
+                        form.querySelector('button').classList.add('bg-gray-400');
+                        form.querySelector('button').classList.remove('bg-primary', 'hover:bg-secondary');
+                        attemptCounter.textContent = 'Access locked. Please contact administrator.';
+                        attemptCounter.classList.add('text-red-600', 'font-medium');
+                    }
+                    
+                    // Clear input for next attempt
+                    pinInput.value = '';
+                    pinInput.focus();
+                }
+            });
+        });
+    </script>
+
+
+</body></html>
