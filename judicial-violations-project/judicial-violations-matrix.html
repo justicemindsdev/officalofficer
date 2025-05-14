@@ -55,6 +55,89 @@
         .nav-btn:hover {
             background-color: #2d3748;
         }
+        
+        /* Audio player styles */
+        .play-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4a5568;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: background-color 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .play-button:hover {
+            background-color: #2d3748;
+        }
+        
+        .play-button svg {
+            width: 12px;
+            height: 12px;
+        }
+        
+        /* Audio modal styles */
+        .audio-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow: auto;
+        }
+        
+        .audio-modal-content {
+            position: relative;
+            margin: 10% auto;
+            width: 80%;
+            max-width: 700px;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .audio-close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+        
+        .subtitle-container {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            line-height: 1.5;
+            min-height: 100px;
+        }
+        
+        .word {
+            display: inline-block;
+            margin-right: 5px;
+            transition: color 0.2s ease, font-weight 0.2s ease;
+        }
+        
+        .word.active {
+            color: #ffcc00;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -63,6 +146,192 @@
         <a href="../app3.html" class="nav-btn">Login Screen</a>
     </div>
     <div id="root"></div>
+    
+    <!-- Audio Modal -->
+    <div id="audioModal" class="audio-modal">
+        <div class="audio-modal-content">
+            <button class="audio-close-button" onclick="closeAudioModal()">&times;</button>
+            
+            <div class="video-container">
+                <iframe id="audioFrame" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            
+            <div class="subtitle-container" id="subtitles"></div>
+        </div>
+    </div>
+    
+    <!-- Audio Player Script -->
+    <script>
+        // Audio data for each violation
+        const audioData = {
+            // Court Part 1 recordings
+            violation1: {
+                videoId: "014520f5-60e4-42a6-9ca7-f241f18ee7db",
+                timestamp: "1:37:25",
+                text: "You cannot be considered as having parental status as it was not legally established through a formal court order or parental responsibility agreement."
+            },
+            violation2: {
+                videoId: "014520f5-60e4-42a6-9ca7-f241f18ee7db",
+                timestamp: "1:28:11",
+                text: "The 'nothing else will do' principle is limited to adoption cases or permanent separation and doesn't apply in this interim care situation because we're not considering permanent removal."
+            },
+            violation4: {
+                videoId: "014520f5-60e4-42a6-9ca7-f241f18ee7db",
+                timestamp: "1:10:46",
+                text: "Your professional qualifications in child welfare and safeguarding are not relevant to these proceedings as you are not instructed as an expert witness."
+            },
+            violation7: {
+                videoId: "014520f5-60e4-42a6-9ca7-f241f18ee7db",
+                timestamp: "1:37:52",
+                text: "So the judge has said that the evidence cannot be sent to the court. You need to bring it up at the hearing along with your CCC2 application, sir."
+            },
+            violation9: {
+                videoId: "014520f5-60e4-42a6-9ca7-f241f18ee7db",
+                timestamp: "1:37:52",
+                text: "Standard court procedures must be followed by all parties regardless of personal circumstances or needs, as procedural consistency is fundamental to proper administration of justice."
+            },
+            violation13: {
+                videoId: "014520f5-60e4-42a6-9ca7-f241f18ee7db",
+                timestamp: "1:37:52",
+                text: "The Local Authority has discretion regarding what information is material to these proceedings."
+            },
+            violation14: {
+                videoId: "014520f5-60e4-42a6-9ca7-f241f18ee7db",
+                timestamp: "1:14:28",
+                text: "Late notification does not invalidate proceedings that have already commenced in the child's interests."
+            },
+            
+            // Court Part 2 recordings
+            violation3: {
+                videoId: "08fd9b71-4dae-4974-a7c3-479e5691d741",
+                timestamp: "25:00",
+                text: "Your involvement in decisions regarding Abel would be part of future care planning, not a legal right you can assert at this stage of proceedings."
+            },
+            violation5: {
+                videoId: "08fd9b71-4dae-4974-a7c3-479e5691d741",
+                timestamp: "5:05",
+                text: "While there may have been some procedural steps missed, these are not material to the outcome and do not impact the validity of these proceedings or necessitate any remedial action."
+            },
+            violation6: {
+                videoId: "08fd9b71-4dae-4974-a7c3-479e5691d741",
+                timestamp: "17:37",
+                text: "A formal fact-finding hearing is not necessary in these circumstances as we can proceed on the basis of the allegations as presented without determination of their veracity at this interim stage."
+            },
+            violation8: {
+                videoId: "08fd9b71-4dae-4974-a7c3-479e5691d741",
+                timestamp: "8:15",
+                text: "The current arrangements away from family members are presumptively in the child's best interests given the concerns raised by professionals involved in the case."
+            },
+            violation10: {
+                videoId: "08fd9b71-4dae-4974-a7c3-479e5691d741",
+                timestamp: "22:33",
+                text: "Due process has been followed in accordance with standard court procedures, and all parties have had appropriate opportunity to present their positions in these proceedings."
+            },
+            violation11: {
+                videoId: "08fd9b71-4dae-4974-a7c3-479e5691d741",
+                timestamp: "15:27",
+                text: "The absence of a formal risk assessment does not preclude proceeding with separation decisions based on professional concerns."
+            },
+            violation12: {
+                videoId: "08fd9b71-4dae-4974-a7c3-479e5691d741",
+                timestamp: "17:37",
+                text: "We can proceed with interim decisions based on concerns raised without requiring factual determinations at this stage."
+            }
+        };
+        
+        // Current audio being played
+        let currentAudio = null;
+        let wordHighlightInterval = null;
+        
+        // Function to open the audio modal and start playback
+        function openAudioModal(violationId) {
+            const modal = document.getElementById('audioModal');
+            const subtitles = document.getElementById('subtitles');
+            const audioFrame = document.getElementById('audioFrame');
+            
+            // Get the audio data for this violation
+            currentAudio = audioData[violationId];
+            
+            if (!currentAudio) {
+                console.error('No audio data found for violation ID:', violationId);
+                return;
+            }
+            
+            // Set up the iframe source with the correct video ID and timestamp
+            const embedId = currentAudio.videoId === "014520f5-60e4-42a6-9ca7-f241f18ee7db" 
+                ? "oMmrNTp5zhCtrRsJJi5w1t1t4Q9A2qeMjp5NvoZd" 
+                : "CpHsw859tGtL4LXUqdGHAl7qXY8OxJ2RqLHP9BxH";
+                
+            audioFrame.src = `https://grain.com/_/embed/recording/${currentAudio.videoId}/${embedId}?autoplay=true&start=${currentAudio.timestamp}`;
+            
+            // Create the subtitle elements
+            subtitles.innerHTML = '';
+            const words = currentAudio.text.split(' ');
+            
+            words.forEach((word, index) => {
+                const wordSpan = document.createElement('span');
+                wordSpan.classList.add('word');
+                wordSpan.textContent = word + ' ';
+                wordSpan.dataset.index = index;
+                subtitles.appendChild(wordSpan);
+            });
+            
+            // Show the modal
+            modal.style.display = 'block';
+            
+            // Start highlighting words
+            startWordHighlighting();
+        }
+        
+        // Function to close the modal and stop playback
+        function closeAudioModal() {
+            const modal = document.getElementById('audioModal');
+            const audioFrame = document.getElementById('audioFrame');
+            
+            // Stop the iframe playback
+            audioFrame.src = '';
+            
+            // Hide the modal
+            modal.style.display = 'none';
+            
+            // Stop word highlighting
+            stopWordHighlighting();
+        }
+        
+        // Function to start highlighting words based on timing
+        function startWordHighlighting() {
+            // Clear any existing interval
+            stopWordHighlighting();
+            
+            // Get all word elements
+            const wordElements = document.querySelectorAll('.word');
+            
+            // Start a new interval to highlight words
+            let currentIndex = 0;
+            
+            wordHighlightInterval = setInterval(() => {
+                // Remove highlight from all words
+                wordElements.forEach(word => word.classList.remove('active'));
+                
+                // Add highlight to current word
+                if (currentIndex < wordElements.length) {
+                    wordElements[currentIndex].classList.add('active');
+                    currentIndex++;
+                } else {
+                    // End of text, stop highlighting
+                    stopWordHighlighting();
+                }
+            }, 500); // Adjust timing as needed
+        }
+        
+        // Function to stop word highlighting
+        function stopWordHighlighting() {
+            if (wordHighlightInterval) {
+                clearInterval(wordHighlightInterval);
+                wordHighlightInterval = null;
+            }
+        }
+    </script>
     
     <!-- The React component -->
     <script type="text/babel">
@@ -74,21 +343,10 @@
           const [sortConfig, setSortConfig] = React.useState({ key: 'id', direction: 'ascending' });
           const [activeVideo, setActiveVideo] = React.useState(null);
           
-          // Function to play a specific segment of a video
-          const playVideoSegment = (videoId, timestamp) => {
-            setActiveVideo({
-              videoId,
-              timestamp
-            });
-            
-            // Open a modal or dialog to display the video
-            document.getElementById('videoModal').style.display = 'flex';
-          };
-
-          // Function to close the video modal
-          const closeVideoModal = () => {
-            setActiveVideo(null);
-            document.getElementById('videoModal').style.display = 'none';
+          // Function to play a specific segment of a video with audio
+          const playAudioSegment = (violationId) => {
+            // Call the global function to open the audio modal
+            openAudioModal(violationId);
           };
 
           // Comprehensive dataset of 20 documented judicial violations with full legal citations
@@ -589,8 +847,8 @@
                                 {violation.judgeVideo && (
                                   <button 
                                     className="ml-2 flex-shrink-0 bg-red-100 text-red-800 p-1 rounded hover:bg-red-200"
-                                    onClick={() => playVideoSegment(violation.judgeVideo.id, violation.judgeVideo.timestamp)}
-                                    title={`Play video at ${violation.judgeVideo.timestamp}`}
+                                    onClick={() => playAudioSegment(`violation${violation.id}`)}
+                                    title={`Play audio at ${violation.judgeVideo?.timestamp}`}
                                   >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -608,8 +866,8 @@
                                 {violation.benVideo && (
                                   <button 
                                     className="ml-2 flex-shrink-0 bg-green-100 text-green-800 p-1 rounded hover:bg-green-200"
-                                    onClick={() => playVideoSegment(violation.benVideo.id, violation.benVideo.timestamp)}
-                                    title={`Play video at ${violation.benVideo.timestamp}`}
+                                    onClick={() => playAudioSegment(`benResponse${violation.id}`)}
+                                    title={`Play audio at ${violation.benVideo?.timestamp}`}
                                   >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -653,8 +911,8 @@
                             {violation.judgeVideo && (
                               <button 
                                 className="bg-red-100 text-red-800 p-1 rounded hover:bg-red-200 flex items-center"
-                                onClick={() => playVideoSegment(violation.judgeVideo.id, violation.judgeVideo.timestamp)}
-                                title={`Play video at ${violation.judgeVideo.timestamp}`}
+                                onClick={() => playAudioSegment(`violation${violation.id}`)}
+                                title={`Play audio at ${violation.judgeVideo?.timestamp}`}
                               >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -678,8 +936,8 @@
                             {violation.benVideo && (
                               <button 
                                 className="bg-green-100 text-green-800 p-1 rounded hover:bg-green-200 flex items-center"
-                                onClick={() => playVideoSegment(violation.benVideo.id, violation.benVideo.timestamp)}
-                                title={`Play video at ${violation.benVideo.timestamp}`}
+                                onClick={() => playAudioSegment(`benResponse${violation.id}`)}
+                                title={`Play audio at ${violation.benVideo?.timestamp}`}
                               >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
