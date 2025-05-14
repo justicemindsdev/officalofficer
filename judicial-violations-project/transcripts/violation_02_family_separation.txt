@@ -1,0 +1,21 @@
+VIOLATION #2: FAMILY SEPARATION
+Date: 2024-02-27
+Time: 14:15:32
+
+JUDGE STATEMENT:
+"The 'nothing else will do' principle is limited to adoption cases or permanent separation and doesn't apply in this interim care situation because we're not considering permanent removal."
+
+BEN'S RESPONSE:
+"The test of 'nothing else will do' has been established by the Supreme Court as applying to all cases where family separation is contemplated, not just adoption. This principle stands with moral and ethical considerations underlying all family separation decisions."
+
+LEGAL PRINCIPLE VIOLATED:
+The principle applies to all significant family separation decisions
+
+CASE LAW:
+Re B (A Child) [2013] UKSC 33 and Re B-S (Children) [2013] EWCA Civ 1146
+
+LEGISLATION:
+Children Act 1989, Section 1(5) - The No Order Principle
+
+WELFARE IMPACT:
+Family separation without proper exploration of alternatives

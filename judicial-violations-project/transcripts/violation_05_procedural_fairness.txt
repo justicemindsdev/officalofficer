@@ -1,0 +1,21 @@
+VIOLATION #5: PROCEDURAL FAIRNESS
+Date: 2024-06-03
+Time: 15:27:44
+
+JUDGE STATEMENT:
+"While there may have been some procedural steps missed, these are not material to the outcome and do not impact the validity of these proceedings or necessitate any remedial action."
+
+BEN'S RESPONSE:
+"Procedural steps being missed were acknowledged by the court itself, but then completely overlooked. No weight or anything was given to these procedural failures whatsoever, which is concerning because procedural fairness is fundamental to justice, especially in child welfare cases."
+
+LEGAL PRINCIPLE VIOLATED:
+Acknowledged procedural errors require remedy
+
+CASE LAW:
+Re T (A Child) [2018] EWCA Civ 2134
+
+LEGISLATION:
+Family Procedure Rules 2010, Part 4.1
+
+WELFARE IMPACT:
+Process integrity compromised affects outcome reliability

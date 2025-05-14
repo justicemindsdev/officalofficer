@@ -1,0 +1,21 @@
+VIOLATION #1: PARENTAL STATUS
+Date: 2024-03-14
+Time: 10:23:17
+
+JUDGE STATEMENT:
+"You cannot be considered as having parental status as it was not legally established through a formal court order or parental responsibility agreement."
+
+BEN'S RESPONSE:
+"I actually checked the legal definition. De facto parent means psychological parent, which is recognized in law. It's when it's not the actual biological parents, but it's recognized that they're helping just as much and have formed a significant attachment relationship with the child."
+
+LEGAL PRINCIPLE VIOLATED:
+De facto parent status is legally recognized even without formal documentation
+
+CASE LAW:
+Re G (Children) [2012] EWCA Civ 1233
+
+LEGISLATION:
+Children Act 1989, Section 1(3)(b)
+
+WELFARE IMPACT:
+Denial of established attachment relationship central to child's stability

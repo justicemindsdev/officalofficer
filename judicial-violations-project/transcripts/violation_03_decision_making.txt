@@ -1,0 +1,21 @@
+VIOLATION #3: DECISION-MAKING
+Date: 2024-05-02
+Time: 11:47:23
+
+JUDGE STATEMENT:
+"Your involvement in decisions regarding Abel would be part of future care planning, not a legal right you can assert at this stage of proceedings."
+
+BEN'S RESPONSE:
+"May I ask, where does it stand with Abel's best interest in having a relationship with his uncle, who he has formed a significant attachment with over three years? The law recognizes my right to be involved in decisions affecting his welfare based on our established relationship."
+
+LEGAL PRINCIPLE VIOLATED:
+Those with established relationships should be involved in significant decisions
+
+CASE LAW:
+Re S (Parental Responsibility) [2016] EWCA Civ 49
+
+LEGISLATION:
+Children Act 1989, Section 2 and Section 10(8) - Connected Persons
+
+WELFARE IMPACT:
+Exclusion from critical decisions affecting child's welfare

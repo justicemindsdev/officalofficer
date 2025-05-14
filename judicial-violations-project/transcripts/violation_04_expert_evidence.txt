@@ -1,0 +1,21 @@
+VIOLATION #4: EXPERT EVIDENCE
+Date: 2024-04-08
+Time: 09:32:17
+
+JUDGE STATEMENT:
+"Your professional qualifications in child welfare and safeguarding are not relevant to these proceedings as you are not instructed as an expert witness."
+
+BEN'S RESPONSE:
+"I'm an expert in this field with recognized qualifications in safeguarding and child welfare. These qualifications are directly relevant to assessing my capability to care for Abel, not just as expert testimony. The court is obligated to consider all relevant skills and qualifications of potential carers."
+
+LEGAL PRINCIPLE VIOLATED:
+Relevant expertise must be considered in welfare determinations
+
+CASE LAW:
+Re H (Minors) (Expert Evidence) [1991] 1 FLR 51
+
+LEGISLATION:
+Family Procedure Rules 2010, Part 25.4
+
+WELFARE IMPACT:
+Qualified caregiver capabilities disregarded to child's detriment
