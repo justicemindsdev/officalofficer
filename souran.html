@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Souran #BusinessAssetKeeper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        executive: '#000000',
+                        deep: '#0A0A0A',
+                        midnight: '#020617',
+                        platinum: '#E2E8F0',
+                        sapphire: '#1E3A8A',
+                        steel: '#1E293B',
+                        crystal: '#F8FAFC',
+                        void: '#030712'
+                    },
+                    animation: {
+                        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+                        'reflective': 'reflective 4s linear infinite',
+                        'executive-glow': 'executive-glow 2s ease-in-out infinite alternate',
+                        'signature': 'signature 4s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 30px rgba(30, 58, 138, 0.6), inset 0 0 30px rgba(30, 58, 138, 0.1)' },
+                            '50%': { boxShadow: '0 0 60px rgba(30, 58, 138, 0.9), inset 0 0 50px rgba(30, 58, 138, 0.3)' }
+                        },
+                        'reflective': {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' }
+                        },
+                        'executive-glow': {
+                            '0%': { boxShadow: '0 0 40px rgba(30, 58, 138, 0.4), 0 0 80px rgba(30, 58, 138, 0.2)' },
+                            '100%': { boxShadow: '0 0 70px rgba(30, 58, 138, 0.7), 0 0 140px rgba(30, 58, 138, 0.3)' }
+                        },
+                        'signature': {
+                            '0%, 100%': { textShadow: '0 0 20px rgba(30, 58, 138, 0.8), 0 0 40px rgba(30, 58, 138, 0.4)' },
+                            '50%': { textShadow: '0 0 30px rgba(30, 58, 138, 1), 0 0 60px rgba(30, 58, 138, 0.6)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Righteous&display=swap');
+        
+        .executive-glass {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.95) 0%,
+                rgba(3, 7, 18, 0.9) 25%,
+                rgba(30, 58, 138, 0.15) 50%,
+                rgba(3, 7, 18, 0.9) 75%,
+                rgba(0, 0, 0, 0.95) 100%);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(30, 58, 138, 0.4);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.7),
+                inset 0 1px 0 rgba(30, 58, 138, 0.3),
+                0 0 80px rgba(30, 58, 138, 0.2);
+        }
+        .reflective-surface {
+            background: linear-gradient(135deg, 
+                rgba(30, 58, 138, 0.2) 0%,
+                rgba(0, 0, 0, 0.9) 20%,
+                rgba(30, 58, 138, 0.3) 40%,
+                rgba(0, 0, 0, 0.9) 60%,
+                rgba(30, 58, 138, 0.2) 80%,
+                rgba(0, 0, 0, 0.9) 100%);
+            background-size: 600% 600%;
+            animation: reflective 8s ease-in-out infinite;
+        }
+        .sapphire-gradient {
+            background: linear-gradient(135deg, 
+                #1E3A8A 0%, 
+                #3B82F6 25%, 
+                #1E3A8A 50%, 
+                #0F172A 75%, 
+                #1E3A8A 100%);
+            background-size: 300% 300%;
+            animation: reflective 5s ease-in-out infinite;
+        }
+        .executive-shadow {
+            box-shadow: 
+                0 35px 80px -20px rgba(0, 0, 0, 0.8),
+                0 0 100px rgba(30, 58, 138, 0.4),
+                inset 0 2px 0 rgba(30, 58, 138, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.5);
+        }
+        .receipt-card {
+            background: linear-gradient(145deg, 
+                rgba(0, 0, 0, 0.95) 0%,
+                rgba(30, 58, 138, 0.1) 50%,
+                rgba(0, 0, 0, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(30, 58, 138, 0.3);
+            transition: all 0.4s ease;
+        }
+        .receipt-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.6), 
+                0 0 40px rgba(30, 58, 138, 0.6),
+                inset 0 0 20px rgba(30, 58, 138, 0.1);
+            border-color: rgba(30, 58, 138, 0.6);
+        }
+        .signature-font {
+            font-family: 'Righteous', cursive;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, 
+                #1E3A8A 0%, 
+                #3B82F6 25%, 
+                #E2E8F0 50%, 
+                #3B82F6 75%, 
+                #1E3A8A 100%);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: signature 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(30, 58, 138, 0.8));
+        }
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(30, 58, 138, 0.3));
+            border-radius: 15px;
+            border: 1px solid rgba(30, 58, 138, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .toggle-switch::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 26px;
+            height: 26px;
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(30, 58, 138, 0.5);
+        }
+        .toggle-switch.active {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.6), rgba(59, 130, 246, 0.3));
+        }
+        .toggle-switch.active::before {
+            transform: translateX(30px);
+            background: linear-gradient(135deg, #3B82F6, #60A5FA);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-black via-executive to-slate-900 min-h-screen transition-all duration-500 overflow-hidden">
+    <!-- Dark mode detection -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <!-- Executive Splash Screen -->
+    <div id="splashScreen" class="fixed inset-0 z-50 flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+             style="background-image: url('https://pfst.cf2.poecdn.net/base/image/e5770271d4202b8a683fe168bcc6c518f5a4ae447494d43e616ddc061c01093e?w=1536&h=1024');">
+            <!-- Subtle dark overlay -->
+            <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        
+        <!-- Minimal Content - Positioned to avoid card -->
+        <div class="relative z-10 w-full h-full flex flex-col">
+            <!-- Top Section - Clear of card -->
+            <div class="flex-1 flex items-start justify-center pt-16">
+                <div class="text-center">
+                    <div class="text-sm md:text-base text-platinum/70 font-light tracking-[0.3em] uppercase">
+                        #BusinessAssetKeeper
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Center Section - Unlock Button positioned below card area -->
+            <div class="flex-1 flex items-end justify-center pb-32">
+                <div class="text-center">
+                    <!-- Unlock Button -->
+                    <button id="unlockBtn" class="group relative overflow-hidden mb-6">
+                        <div class="absolute inset-0 bg-gradient-to-r from-sapphire via-blue-600 to-sapphire animate-reflective opacity-70"></div>
+                        <div class="relative px-8 py-3 bg-black/30 backdrop-blur-sm border border-sapphire/40 rounded-lg text-crystal font-medium text-base tracking-wide transition-all duration-300 group-hover:scale-105 group-hover:border-sapphire/70">
+                            <div class="flex items-center justify-center space-x-2">
+                                <span class="text-sm">🔓</span>
+                                <span>ACCESS SYSTEM</span>
+                            </div>
+                        </div>
+                    </button>
+                    
+                    <!-- Minimal instruction -->
+                    <div class="text-xs text-platinum/50 tracking-wider">
+                        EXECUTIVE INTELLIGENCE
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subtle decorative elements - positioned away from card -->
+            <div class="absolute top-20 right-20 w-1 h-1 bg-sapphire rounded-full animate-ping opacity-30"></div>
+            <div class="absolute bottom-40 left-20 w-1.5 h-1.5 bg-crystal rounded-full animate-ping opacity-20" style="animation-delay: 2s;"></div>
+        </div>
+    </div>
+
+    <!-- Main Application (Hidden Initially) -->
+    <div id="mainApp" class="hidden">
+        <div class="container mx-auto px-4 py-6 max-w-7xl">
+        <!-- Executive Header -->
+        <div class="text-center mb-12 relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-sapphire to-transparent h-px top-1/2 transform -translate-y-1/2 opacity-50"></div>
+            <div class="executive-glass rounded-3xl p-8 mb-6 relative overflow-hidden animate-executive-glow">
+                <div class="absolute inset-0 reflective-surface"></div>
+                <h1 class="text-6xl signature-font mb-2 relative z-10">
+                    Mr. Souran
+                </h1>
+                <div class="text-2xl font-semibold text-sapphire mb-3 relative z-10">#BusinessAssetKeeper</div>
+                <p class="text-platinum/90 text-lg relative z-10">Advanced Computational Machine Learning Asset Intelligence</p>
+                <div class="text-sm text-platinum/60 relative z-10 mt-2">Previously observed manual receipt processing. Now deploying 10x computational power.</div>
+                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-sapphire to-transparent"></div>
+            </div>
+        </div>
+
+        <!-- Executive Demo Center -->
+        <div class="executive-glass rounded-3xl p-8 mb-12 executive-shadow relative overflow-hidden">
+            <div class="absolute inset-0 reflective-surface opacity-30"></div>
+            <div class="relative z-10">
+                <!-- Demo Header -->
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-sapphire to-blue-600 mb-6 animate-pulse-glow">
+                        <span class="text-3xl">⚡</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-crystal mb-4">Experience Executive Intelligence</h2>
+                    <p class="text-xl text-platinum/90 max-w-4xl mx-auto leading-relaxed">
+                        Witness the transformation from manual receipt processing to 10x computational machine learning deployment
+                    </p>
+                </div>
+
+                <!-- Problem & Solution Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <!-- What It Solves -->
+                    <div class="executive-glass rounded-2xl p-6 border border-red-500/30">
+                        <h3 class="text-2xl font-bold text-red-400 mb-4 flex items-center">
+                            <span class="mr-3">⚠️</span> Executive Pain Points
+                        </h3>
+                        <ul class="space-y-3 text-platinum/80">
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>Manual receipt processing wastes 40+ hours monthly</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>Financial data scattered across multiple systems</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>No real-time expense intelligence or insights</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>Missing tax optimization opportunities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>Inadequate compliance and audit trails</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Why It's Effective -->
+                    <div class="executive-glass rounded-2xl p-6 border border-green-500/30">
+                        <h3 class="text-2xl font-bold text-green-400 mb-4 flex items-center">
+                            <span class="mr-3">✅</span> Computational Advantages
+                        </h3>
+                        <ul class="space-y-3 text-platinum/80">
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">•</span>
+                                <span>99.7% OCR accuracy with machine learning validation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">•</span>
+                                <span>Bulk processing: 100 receipts in under 60 seconds</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">•</span>
+                                <span>Executive-grade analytics with weekly intelligence reports</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">•</span>
+                                <span>Automated categorization and compliance checking</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-400 mr-2">•</span>
+                                <span>C-suite ready reporting with financial insights</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Demo Action Center -->
+                <div class="text-center">
+                    <div class="bg-gradient-to-r from-sapphire/20 to-blue-600/20 rounded-2xl p-6 mb-6 border border-sapphire/40">
+                        <h3 class="text-2xl font-bold text-sapphire mb-3">Live Demonstration</h3>
+                        <p class="text-platinum/70 mb-4 max-w-2xl mx-auto">
+                            Deploy our computational matrix with 10 premium sample receipts from luxury establishments. 
+                            Watch real-time processing, extraction, and intelligence generation.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            <button id="demoBtn" class="sapphire-gradient text-crystal font-bold py-4 px-8 rounded-xl text-lg executive-shadow hover:scale-105 transform transition-all duration-300 animate-pulse-glow">
+                                🚀 Launch Executive Demo
+                            </button>
+                            <div class="text-sm text-platinum/60">
+                                <span class="font-semibold">Demo includes:</span> Ritz-Carlton • Bentley Motors • Harrods • British Airways
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Computational Evidence Matrix -->
+        <div class="executive-glass rounded-2xl p-6 mb-8 executive-shadow">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-sapphire flex items-center">
+                    <span class="mr-3">📊</span> Computational Evidence Matrix (10x10 Processing Grid)
+                </h2>
+                <div class="flex items-center space-x-3">
+                    <span class="text-sm text-platinum/70">Grid View</span>
+                    <div class="toggle-switch" id="gridToggle"></div>
+                </div>
+            </div>
+            
+            <!-- Receipt Evidence Grid -->
+            <div id="gridContainer" class="hidden">
+                <div class="grid grid-cols-5 md:grid-cols-10 gap-2 mb-6" id="receiptGrid">
+                    <!-- Grid will be populated with receipt evidence cards -->
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-platinum/70 text-sm">Manual receipt processing observed. Deploying 10x computational intelligence for bulk analysis.</p>
+                    <button id="processAllBtn" class="mt-4 sapphire-gradient text-crystal font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105" disabled>
+                        📸 Process All Evidence Simultaneously
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Grid Toggle Description -->
+            <div id="gridDescription" class="text-center py-8">
+                <div class="text-6xl text-sapphire/50 mb-4">⚡</div>
+                <p class="text-platinum/70 text-lg mb-4">
+                    Evidence Matrix contains 100 computational processing units arranged in 10x10 configuration.
+                </p>
+                <p class="text-platinum/50 text-sm">
+                    Toggle grid view to visualize the evidence matrix and deploy bulk processing capabilities.
+                </p>
+            </div>
+        </div>
+
+        <!-- Demo Modal -->
+        <div id="demoModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div class="glass-effect rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto prestige-shadow">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold text-gold">Demo Walkthrough</h2>
+                    <button id="closeDemoBtn" class="text-platinum hover:text-gold text-2xl">✕</button>
+                </div>
+                <div id="demoContent">
+                    <div id="demoStep" class="text-center">
+                        <div class="text-6xl mb-4">📊</div>
+                        <h3 class="text-2xl font-semibold text-platinum mb-4">Welcome to Mr. Souran #BusinessAssetKeeper</h3>
+                        <p class="text-platinum/80 mb-6">Experience the most sophisticated expense tracking system designed for discerning professionals.</p>
+                        <button id="startDemo" class="gold-gradient text-prestige font-bold py-3 px-6 rounded-lg">Begin Journey</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Panel -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Upload Section -->
+            <div class="lg:col-span-2 executive-glass rounded-2xl p-6 executive-shadow">
+                <h2 class="text-2xl font-bold text-sapphire mb-6 flex items-center">
+                    <span class="mr-3">📸</span> Computational Receipt Analysis Portal
+                </h2>
+                <div class="border-2 border-dashed border-sapphire/30 rounded-xl p-8 text-center hover:border-sapphire/60 transition-colors duration-300">
+                    <input type="file" id="receiptInput" accept="image/*" class="hidden">
+                    <label for="receiptInput" class="cursor-pointer">
+                        <div class="mb-4">
+                            <div class="text-6xl text-sapphire mb-2">📄</div>
+                        </div>
+                        <div class="text-sm text-platinum/80">
+                            <span class="font-medium text-sapphire hover:text-sapphire/80">Upload Executive Receipt</span> or drag and drop
+                        </div>
+                        <p class="text-xs text-platinum/60 mt-1">PNG, JPG, GIF up to 10MB</p>
+                    </label>
+                </div>
+                
+                <button id="processBtn" class="mt-6 w-full sapphire-gradient text-crystal font-bold py-3 px-6 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]" disabled>
+                    🔬 Deploy Computational Machine Learning
+                </button>
+
+                <div id="loadingState" class="hidden mt-6 text-center">
+                    <div class="inline-flex items-center px-6 py-3 text-sm text-platinum/80 executive-glass rounded-lg">
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-sapphire" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Processing with Advanced Computational Systems...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Statistics -->
+            <div class="executive-glass rounded-2xl p-6 executive-shadow">
+                <h2 class="text-xl font-bold text-sapphire mb-6 flex items-center">
+                    <span class="mr-2">💎</span> Executive Portfolio
+                </h2>
+                <div class="space-y-4">
+                    <div class="bg-gradient-to-r from-sapphire/20 to-sapphire/10 p-4 rounded-xl border border-sapphire/30">
+                        <div class="text-sm font-medium text-sapphire">Session Value</div>
+                        <div id="sessionTotal" class="text-2xl font-bold text-crystal">£0.00</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-500/20 to-green-400/10 p-4 rounded-xl border border-green-400/30">
+                        <div class="text-sm font-medium text-green-400">Asset Count</div>
+                        <div id="receiptCount" class="text-2xl font-bold text-platinum">0</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-500/20 to-purple-400/10 p-4 rounded-xl border border-purple-400/30">
+                        <div class="text-sm font-medium text-purple-400">Avg. Transaction</div>
+                        <div id="avgTransaction" class="text-2xl font-bold text-platinum">£0.00</div>
+                    </div>
+                </div>
+                
+                <button id="loadSamplesBtn" class="mt-6 w-full sapphire-gradient text-crystal font-bold py-3 px-4 rounded-xl transition-all duration-300 hover:scale-105">
+                    Load Executive Portfolio
+                </button>
+            </div>
+        </div>
+
+        <!-- Extracted Data Section -->
+        <div id="extractedDataSection" class="hidden executive-glass rounded-2xl p-6 mb-8 executive-shadow">
+            <h2 class="text-2xl font-bold text-sapphire mb-6 flex items-center">
+                <span class="mr-3">🔬</span> Computational Intelligence Extraction
+            </h2>
+            <div id="extractedData" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            <button id="addToTracker" class="mt-6 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-crystal font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105">
+                💼 Add to Executive Portfolio
+            </button>
+        </div>
+
+        <!-- Weekly Analytics Dashboard -->
+        <div class="executive-glass rounded-2xl p-6 mb-8 executive-shadow">
+            <h2 class="text-2xl font-bold text-sapphire mb-6 flex items-center">
+                <span class="mr-3">📈</span> Executive Analytics Dashboard
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div class="bg-gradient-to-br from-sapphire/20 to-sapphire/5 p-6 rounded-xl border border-sapphire/30 animate-pulse-glow">
+                    <div class="text-sm font-medium text-sapphire">This Week</div>
+                    <div id="weeklyTotal" class="text-3xl font-bold text-crystal">£0.00</div>
+                    <div id="weeklyCount" class="text-sm text-platinum/60">0 transactions</div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-400/20 to-blue-400/5 p-6 rounded-xl border border-blue-400/30">
+                    <div class="text-sm font-medium text-blue-400">Previous Week</div>
+                    <div id="prevWeeklyTotal" class="text-3xl font-bold text-platinum">£0.00</div>
+                    <div id="prevWeeklyCount" class="text-sm text-platinum/60">0 transactions</div>
+                </div>
+                <div class="bg-gradient-to-br from-purple-400/20 to-purple-400/5 p-6 rounded-xl border border-purple-400/30">
+                    <div class="text-sm font-medium text-purple-400">Weekly Change</div>
+                    <div id="weeklyChange" class="text-3xl font-bold text-platinum">0%</div>
+                    <div id="weeklyTrend" class="text-sm text-platinum/60">No change</div>
+                </div>
+            </div>
+            
+            <button id="generateReport" class="w-full sapphire-gradient text-crystal font-bold py-4 px-6 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] executive-shadow">
+                🧠 Generate Computational Intelligence Report
+            </button>
+        </div>
+
+        <!-- Executive Portfolio -->
+        <div class="executive-glass rounded-2xl p-6 mb-8 executive-shadow">
+            <h2 class="text-2xl font-bold text-sapphire mb-6 flex items-center">
+                <span class="mr-3">💼</span> Executive Asset Portfolio
+            </h2>
+            <div id="expenseList" class="space-y-3">
+                <div class="text-center py-12">
+                    <div class="text-6xl text-sapphire/50 mb-4">📋</div>
+                    <p class="text-platinum/60 text-lg">Your executive portfolio awaits computational processing.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Computational Intelligence Report -->
+        <div id="reportSection" class="hidden executive-glass rounded-2xl p-6 executive-shadow">
+            <h2 class="text-2xl font-bold text-sapphire mb-6 flex items-center">
+                <span class="mr-3">🎯</span> Executive Intelligence Report
+            </h2>
+            <div id="reportContent" class="prose prose-invert prose-blue max-w-none text-platinum"></div>
+            <div id="reportLoading" class="hidden text-center py-12">
+                <div class="inline-flex items-center px-6 py-3 text-sm text-platinum/80 executive-glass rounded-lg">
+                    <svg class="animate-spin -ml-1 mr-3 h-6 w-6 text-sapphire" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Generating comprehensive computational intelligence...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample receipt data for demonstration
+        const sampleReceipts = [
+            {
+                id: 1,
+                merchant_name: "The Ritz-Carlton Restaurant",
+                date: "2024-01-15",
+                time: "19:30",
+                amount: "185.50",
+                currency: "GBP",
+                payment_method: "American Express Platinum",
+                category: "Fine Dining",
+                transaction_id: "RTZ001234567"
+            },
+            {
+                id: 2,
+                merchant_name: "Bentley Motors London",
+                date: "2024-01-14",
+                time: "14:15",
+                amount: "2,750.00",
+                currency: "GBP",
+                payment_method: "Corporate Card",
+                category: "Vehicle Services",
+                transaction_id: "BEN887654321"
+            },
+            {
+                id: 3,
+                merchant_name: "Harrods Department Store",
+                date: "2024-01-13",
+                time: "16:45",
+                amount: "1,247.99",
+                currency: "GBP",
+                payment_method: "Visa Signature",
+                category: "Luxury Retail",
+                transaction_id: "HAR445566778"
+            },
+            {
+                id: 4,
+                merchant_name: "Savoy Hotel London",
+                date: "2024-01-12",
+                time: "11:00",
+                amount: "395.00",
+                currency: "GBP",
+                payment_method: "Business Account",
+                category: "Hospitality",
+                transaction_id: "SAV112233445"
+            },
+            {
+                id: 5,
+                merchant_name: "British Airways First Class",
+                date: "2024-01-11",
+                time: "08:30",
+                amount: "4,250.00",
+                currency: "GBP",
+                payment_method: "Corporate AmEx",
+                category: "Business Travel",
+                transaction_id: "BAW998877665"
+            },
+            {
+                id: 6,
+                merchant_name: "Asprey London Jewellers",
+                date: "2024-01-10",
+                time: "15:20",
+                amount: "8,750.00",
+                currency: "GBP",
+                payment_method: "Private Banking Card",
+                category: "Luxury Goods",
+                transaction_id: "ASP334455667"
+            },
+            {
+                id: 7,
+                merchant_name: "Gordon Ramsay Restaurant",
+                date: "2024-01-09",
+                time: "20:00",
+                amount: "325.75",
+                currency: "GBP",
+                payment_method: "Platinum Card",
+                category: "Fine Dining",
+                transaction_id: "GOR776655443"
+            },
+            {
+                id: 8,
+                merchant_name: "Claridge's Hotel",
+                date: "2024-01-08",
+                time: "12:30",
+                amount: "480.00",
+                currency: "GBP",
+                payment_method: "Business Visa",
+                category: "Hospitality",
+                transaction_id: "CLA221133445"
+            },
+            {
+                id: 9,
+                merchant_name: "Selfridges London",
+                date: "2024-01-07",
+                time: "17:10",
+                amount: "892.50",
+                currency: "GBP",
+                payment_method: "Personal AmEx",
+                category: "Luxury Retail",
+                transaction_id: "SEL567890123"
+            },
+            {
+                id: 10,
+                merchant_name: "Fortnum & Mason",
+                date: "2024-01-06",
+                time: "14:45",
+                amount: "156.25",
+                currency: "GBP",
+                payment_method: "Debit Card",
+                category: "Gourmet Food",
+                transaction_id: "FOR123456789"
+            }
+        ];
+
+        // App state
+        let expenses = [];
+        let selectedFile = null;
+        let currentReceiptData = null;
+
+        // DOM elements
+        const receiptInput = document.getElementById('receiptInput');
+        const processBtn = document.getElementById('processBtn');
+        const loadingState = document.getElementById('loadingState');
+        const extractedDataSection = document.getElementById('extractedDataSection');
+        const extractedData = document.getElementById('extractedData');
+        const addToTracker = document.getElementById('addToTracker');
+        const sessionTotal = document.getElementById('sessionTotal');
+        const receiptCount = document.getElementById('receiptCount');
+        const avgTransaction = document.getElementById('avgTransaction');
+        const generateReport = document.getElementById('generateReport');
+        const expenseList = document.getElementById('expenseList');
+        const reportSection = document.getElementById('reportSection');
+        const reportContent = document.getElementById('reportContent');
+        const reportLoading = document.getElementById('reportLoading');
+        const loadSamplesBtn = document.getElementById('loadSamplesBtn');
+
+        // Weekly analytics elements
+        const weeklyTotal = document.getElementById('weeklyTotal');
+        const weeklyCount = document.getElementById('weeklyCount');
+        const prevWeeklyTotal = document.getElementById('prevWeeklyTotal');
+        const prevWeeklyCount = document.getElementById('prevWeeklyCount');
+        const weeklyChange = document.getElementById('weeklyChange');
+        const weeklyTrend = document.getElementById('weeklyTrend');
+
+        // Demo elements
+        const demoBtn = document.getElementById('demoBtn');
+        const demoModal = document.getElementById('demoModal');
+        const closeDemoBtn = document.getElementById('closeDemoBtn');
+        const startDemo = document.getElementById('startDemo');
+        const demoContent = document.getElementById('demoContent');
+        
+        // Grid toggle elements
+        const gridToggle = document.getElementById('gridToggle');
+        const gridContainer = document.getElementById('gridContainer');
+        const gridDescription = document.getElementById('gridDescription');
+
+        // File input handler
+        receiptInput.addEventListener('change', (e) => {
+            selectedFile = e.target.files[0];
+            if (selectedFile) {
+                processBtn.disabled = false;
+            }
+        });
+
+        // Load sample data
+        loadSamplesBtn.addEventListener('click', () => {
+            expenses = [...sampleReceipts];
+            updateSummary();
+            updateWeeklyAnalytics();
+            updateExpenseList();
+            loadSamplesBtn.textContent = '✅ Portfolio Loaded';
+            loadSamplesBtn.disabled = true;
+            setTimeout(() => {
+                loadSamplesBtn.textContent = 'Load Sample Portfolio';
+                loadSamplesBtn.disabled = false;
+            }, 3000);
+        });
+
+        // Demo functionality
+        demoBtn.addEventListener('click', () => {
+            demoModal.classList.remove('hidden');
+        });
+
+        closeDemoBtn.addEventListener('click', () => {
+            demoModal.classList.add('hidden');
+        });
+
+        let demoStep = 0;
+        const demoSteps = [
+            {
+                icon: "📊",
+                title: "Welcome to Mr. Souran #BusinessAssetKeeper",
+                content: "Experience the most sophisticated expense tracking system designed for discerning professionals.",
+                action: "Begin Journey"
+            },
+            {
+                icon: "📸",
+                title: "Receipt Intelligence Acquisition",
+                content: "Upload any receipt and watch our AI extract every detail with precision. From merchant information to transaction IDs, nothing escapes our analysis.",
+                action: "Next: AI Processing"
+            },
+            {
+                icon: "🔬",
+                title: "Advanced Data Extraction",
+                content: "Our Claude-powered AI reads receipts like a forensic accountant, categorizing expenses and identifying spending patterns.",
+                action: "Next: Portfolio Management"
+            },
+            {
+                icon: "💼",
+                title: "Elite Portfolio Tracking",
+                content: "Every transaction becomes part of your curated asset portfolio, with real-time analytics and intelligent categorization.",
+                action: "Next: Weekly Analytics"
+            },
+            {
+                icon: "📈",
+                title: "Weekly Intelligence Reports",
+                content: "Compare weekly performance, track spending trends, and receive AI-generated insights that would make a CFO proud.",
+                action: "Next: Sample Demo"
+            },
+            {
+                icon: "🎭",
+                title: "Live Demonstration",
+                content: "Watch as we load 10 premium sample receipts from luxury establishments, showing the full power of the system.",
+                action: "Load Demo Data"
+            }
+        ];
+
+        startDemo.addEventListener('click', () => {
+            demoStep++;
+            if (demoStep < demoSteps.length) {
+                showDemoStep();
+            } else if (demoStep === demoSteps.length) {
+                // Load demo data
+                expenses = [...sampleReceipts];
+                updateSummary();
+                updateWeeklyAnalytics();
+                updateExpenseList();
+                
+                demoContent.innerHTML = `
+                    <div class="text-center">
+                        <div class="text-6xl mb-4">✨</div>
+                        <h3 class="text-2xl font-semibold text-gold mb-4">Demo Complete!</h3>
+                        <p class="text-platinum/80 mb-6">Your portfolio now contains 10 premium sample receipts. Explore the analytics and generate reports!</p>
+                        <button id="finishDemo" class="gold-gradient text-prestige font-bold py-3 px-6 rounded-lg">Explore Portfolio</button>
+                    </div>
+                `;
+                
+                document.getElementById('finishDemo').addEventListener('click', () => {
+                    demoModal.classList.add('hidden');
+                });
+            }
+        });
+
+        function showDemoStep() {
+            const step = demoSteps[demoStep];
+            demoContent.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${step.icon}</div>
+                    <h3 class="text-2xl font-semibold text-platinum mb-4">${step.title}</h3>
+                    <p class="text-platinum/80 mb-6">${step.content}</p>
+                    <button id="continueDemo" class="gold-gradient text-prestige font-bold py-3 px-6 rounded-lg">${step.action}</button>
+                </div>
+            `;
+            
+            document.getElementById('continueDemo').addEventListener('click', () => {
+                if (demoStep === demoSteps.length - 1) {
+                    startDemo.click();
+                } else {
+                    startDemo.click();
+                }
+            });
+        }
+
+        // Process receipt
+        processBtn.addEventListener('click', async () => {
+            if (!selectedFile) return;
+
+            processBtn.disabled = true;
+            loadingState.classList.remove('hidden');
+            extractedDataSection.classList.add('hidden');
+
+            try {
+                window.Poe.registerHandler('ocr-handler', (result) => {
+                    const msg = result.responses[0];
+                    
+                    if (msg.status === 'error') {
+                        loadingState.classList.add('hidden');
+                        processBtn.disabled = false;
+                        alert('Error processing receipt: ' + msg.statusText);
+                    } else if (msg.status === 'complete') {
+                        loadingState.classList.add('hidden');
+                        processBtn.disabled = false;
+                        displayExtractedData(msg.content);
+                    }
+                });
+
+                await window.Poe.sendUserMessage(
+                    '@Claude-Sonnet-4 Extract all the information from this receipt image and provide it in a structured JSON format. Include: merchant_name, date, time, amount, currency, payment_method, transaction_id, terminal_id, merchant_id, category (guess based on merchant), and any other relevant details. Provide ONLY raw JSON in your response with no explanations, additional text, or code block formatting (no ```).',
+                    {
+                        attachments: [selectedFile],
+                        handler: 'ocr-handler',
+                        stream: false,
+                        openChat: false
+                    }
+                );
+            } catch (error) {
+                loadingState.classList.add('hidden');
+                processBtn.disabled = false;
+                console.error('Error:', error);
+                alert('Error processing receipt. Please try again.');
+            }
+        });
+
+        function displayExtractedData(jsonResponse) {
+            try {
+                currentReceiptData = JSON.parse(jsonResponse);
+                
+                extractedData.innerHTML = '';
+                
+                const fields = [
+                    { key: 'merchant_name', label: 'Merchant', icon: '🏢' },
+                    { key: 'date', label: 'Date', icon: '📅' },
+                    { key: 'time', label: 'Time', icon: '⏰' },
+                    { key: 'amount', label: 'Amount', icon: '💰' },
+                    { key: 'currency', label: 'Currency', icon: '💱' },
+                    { key: 'payment_method', label: 'Payment Method', icon: '💳' },
+                    { key: 'category', label: 'Category', icon: '📊' },
+                    { key: 'transaction_id', label: 'Transaction ID', icon: '🔢' }
+                ];
+
+                fields.forEach(field => {
+                    if (currentReceiptData[field.key]) {
+                        const div = document.createElement('div');
+                        div.className = 'bg-gradient-to-r from-gold/10 to-platinum/10 p-4 rounded-xl border border-gold/20';
+                        div.innerHTML = `
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <span class="text-xl mr-3">${field.icon}</span>
+                                    <span class="font-medium text-platinum/80">${field.label}</span>
+                                </div>
+                                <span class="text-gold font-semibold">${currentReceiptData[field.key]}</span>
+                            </div>
+                        `;
+                        extractedData.appendChild(div);
+                    }
+                });
+
+                extractedDataSection.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error parsing JSON:', error);
+                alert('Error parsing extracted data. The AI response may not be in valid JSON format.');
+            }
+        }
+
+        // Add to tracker
+        addToTracker.addEventListener('click', () => {
+            if (currentReceiptData) {
+                expenses.push({
+                    ...currentReceiptData,
+                    id: Date.now(),
+                    addedAt: new Date().toISOString()
+                });
+                
+                updateSummary();
+                updateWeeklyAnalytics();
+                updateExpenseList();
+                
+                receiptInput.value = '';
+                selectedFile = null;
+                processBtn.disabled = true;
+                extractedDataSection.classList.add('hidden');
+                currentReceiptData = null;
+                
+                // Success animation
+                addToTracker.textContent = '✅ Added to Portfolio';
+                setTimeout(() => {
+                    addToTracker.textContent = '💼 Add to Asset Portfolio';
+                }, 2000);
+            }
+        });
+
+        function updateSummary() {
+            const total = expenses.reduce((sum, expense) => {
+                const amount = parseFloat(expense.amount?.toString().replace(/[^\d.-]/g, '') || 0);
+                return sum + amount;
+            }, 0);
+            
+            sessionTotal.textContent = `£${total.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            receiptCount.textContent = expenses.length.toString();
+            avgTransaction.textContent = expenses.length > 0 ? `£${(total / expenses.length).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '£0.00';
+        }
+
+        function updateWeeklyAnalytics() {
+            const now = new Date();
+            const startOfWeek = new Date(now.setDate(now.getDate() - now.getDay()));
+            const startOfLastWeek = new Date(startOfWeek.getTime() - 7 * 24 * 60 * 60 * 1000);
+            
+            const thisWeekExpenses = expenses.filter(expense => {
+                const expenseDate = new Date(expense.date);
+                return expenseDate >= startOfWeek;
+            });
+            
+            const lastWeekExpenses = expenses.filter(expense => {
+                const expenseDate = new Date(expense.date);
+                return expenseDate >= startOfLastWeek && expenseDate < startOfWeek;
+            });
+            
+            const thisWeekTotal = thisWeekExpenses.reduce((sum, expense) => {
+                return sum + parseFloat(expense.amount?.toString().replace(/[^\d.-]/g, '') || 0);
+            }, 0);
+            
+            const lastWeekTotal = lastWeekExpenses.reduce((sum, expense) => {
+                return sum + parseFloat(expense.amount?.toString().replace(/[^\d.-]/g, '') || 0);
+            }, 0);
+            
+            const changePercent = lastWeekTotal > 0 ? ((thisWeekTotal - lastWeekTotal) / lastWeekTotal * 100) : 0;
+            
+            weeklyTotal.textContent = `£${thisWeekTotal.toLocaleString('en-GB', { minimumFractionDigits: 2 })}`;
+            weeklyCount.textContent = `${thisWeekExpenses.length} transactions`;
+            
+            prevWeeklyTotal.textContent = `£${lastWeekTotal.toLocaleString('en-GB', { minimumFractionDigits: 2 })}`;
+            prevWeeklyCount.textContent = `${lastWeekExpenses.length} transactions`;
+            
+            weeklyChange.textContent = `${changePercent > 0 ? '+' : ''}${changePercent.toFixed(1)}%`;
+            
+            if (changePercent > 10) {
+                weeklyTrend.textContent = '📈 Significant increase';
+                weeklyChange.className = 'text-3xl font-bold text-red-400';
+            } else if (changePercent > 0) {
+                weeklyTrend.textContent = '📊 Moderate increase';
+                weeklyChange.className = 'text-3xl font-bold text-yellow-400';
+            } else if (changePercent < -10) {
+                weeklyTrend.textContent = '📉 Significant decrease';
+                weeklyChange.className = 'text-3xl font-bold text-green-400';
+            } else if (changePercent < 0) {
+                weeklyTrend.textContent = '📊 Moderate decrease';
+                weeklyChange.className = 'text-3xl font-bold text-blue-400';
+            } else {
+                weeklyTrend.textContent = '➡️ No change';
+                weeklyChange.className = 'text-3xl font-bold text-platinum';
+            }
+        }
+
+        function updateExpenseList() {
+            if (expenses.length === 0) {
+                expenseList.innerHTML = `
+                    <div class="text-center py-12">
+                        <div class="text-6xl text-gold/50 mb-4">📋</div>
+                        <p class="text-platinum/60 text-lg">Your elite portfolio awaits. Upload receipts or load samples to begin.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            expenseList.innerHTML = '';
+            
+            const recentExpenses = expenses.slice(-10).reverse();
+            
+            recentExpenses.forEach((expense, index) => {
+                const div = document.createElement('div');
+                div.className = 'glass-effect p-4 rounded-xl border border-gold/20 hover:border-gold/40 transition-all duration-300 transform hover:scale-[1.02]';
+                
+                const amount = parseFloat(expense.amount?.toString().replace(/[^\d.-]/g, '') || 0);
+                const categoryIcons = {
+                    'Fine Dining': '🍽️',
+                    'Vehicle Services': '🚗',
+                    'Luxury Retail': '👜',
+                    'Hospitality': '🏨',
+                    'Business Travel': '✈️',
+                    'Luxury Goods': '💎',
+                    'Gourmet Food': '🥂'
+                };
+                
+                div.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-4">
+                            <div class="text-2xl">${categoryIcons[expense.category] || '💼'}</div>
+                            <div>
+                                <div class="font-bold text-platinum text-lg">${expense.merchant_name || 'Unknown Merchant'}</div>
+                                <div class="text-sm text-platinum/60">${expense.date || 'No date'} ${expense.time || ''}</div>
+                                <div class="text-xs text-gold">${expense.category || 'Uncategorized'}</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-white text-xl">£${amount.toLocaleString('en-GB', { minimumFractionDigits: 2 })}</div>
+                            <div class="text-xs text-platinum/60">${expense.payment_method || ''}</div>
+                            <div class="text-xs text-platinum/40">#${expense.transaction_id || 'N/A'}</div>
+                        </div>
+                    </div>
+                `;
+                
+                expenseList.appendChild(div);
+            });
+        }
+
+        // Generate report
+        generateReport.addEventListener('click', async () => {
+            if (expenses.length === 0) {
+                alert('Please add some expenses first before generating a report.');
+                return;
+            }
+
+            reportSection.classList.remove('hidden');
+            reportLoading.classList.remove('hidden');
+            reportContent.innerHTML = '';
+            generateReport.disabled = true;
+
+            try {
+                window.Poe.registerHandler('report-handler', (result) => {
+                    const msg = result.responses[0];
+                    
+                    if (msg.status === 'error') {
+                        reportLoading.classList.add('hidden');
+                        generateReport.disabled = false;
+                        reportContent.innerHTML = '<p class="text-red-400">Error generating report: ' + msg.statusText + '</p>';
+                    } else if (msg.status === 'incomplete') {
+                        reportContent.innerHTML = marked.parse(msg.content);
+                    } else if (msg.status === 'complete') {
+                        reportLoading.classList.add('hidden');
+                        generateReport.disabled = false;
+                        reportContent.innerHTML = marked.parse(msg.content);
+                    }
+                });
+
+                const expenseData = JSON.stringify(expenses, null, 2);
+                
+                await window.Poe.sendUserMessage(
+                    `@Claude-Sonnet-4 Generate an elite business intelligence report for Mr. Souran's expense portfolio. Analyze these premium transactions with the sophistication of a top-tier financial consultant. 
+
+Include:
+- Executive Summary with key insights
+- Weekly spending analysis and trends
+- Category breakdown with luxury market insights
+- Merchant relationship analysis
+- Payment method optimization recommendations
+- Risk assessment and compliance notes
+- Strategic recommendations for expense optimization
+- Comparative analysis between periods
+- Cash flow implications
+- Tax optimization opportunities
+
+Present this as a comprehensive report suitable for C-suite executives, with professional formatting and actionable insights.
+
+Expense Data:
+${expenseData}`,
+                    {
+                        handler: 'report-handler',
+                        stream: true,
+                        openChat: false
+                    }
+                );
+            } catch (error) {
+                reportLoading.classList.add('hidden');
+                generateReport.disabled = false;
+                console.error('Error:', error);
+                reportContent.innerHTML = '<p class="text-red-400">Error generating report. Please try again.</p>';
+            }
+        });
+
+        // Generate receipt grid visuals
+        function generateReceiptGrid() {
+            const receiptGrid = document.getElementById('receiptGrid');
+            const processAllBtn = document.getElementById('processAllBtn');
+            
+            // Create 100 receipt cards (10x10 grid)
+            for (let i = 0; i < 100; i++) {
+                const card = document.createElement('div');
+                card.className = 'receipt-card rounded-lg p-2 aspect-square flex flex-col items-center justify-center text-xs cursor-pointer';
+                
+                if (i < sampleReceipts.length) {
+                    // Real receipt data
+                    const receipt = sampleReceipts[i];
+                    const amount = parseFloat(receipt.amount.replace(/[^\d.-]/g, ''));
+                    const categoryIcons = {
+                        'Fine Dining': '🍽️',
+                        'Vehicle Services': '🚗',
+                        'Luxury Retail': '👜',
+                        'Hospitality': '🏨',
+                        'Business Travel': '✈️',
+                        'Luxury Goods': '💎',
+                        'Gourmet Food': '🥂'
+                    };
+                    
+                    card.innerHTML = `
+                        <div class="text-lg mb-1">${categoryIcons[receipt.category] || '📄'}</div>
+                        <div class="text-sapphire font-bold text-[10px] leading-tight text-center">${receipt.merchant_name.substring(0, 12)}...</div>
+                        <div class="text-crystal font-bold text-[9px]">£${amount.toFixed(0)}</div>
+                        <div class="text-platinum/60 text-[8px]">${receipt.date.substring(5)}</div>
+                    `;
+                    
+                    card.addEventListener('click', () => {
+                        // Simulate processing individual receipt
+                        card.style.transform = 'scale(1.1)';
+                        card.style.background = 'linear-gradient(145deg, rgba(30, 64, 175, 0.3), rgba(15, 23, 42, 0.9))';
+                        setTimeout(() => {
+                            card.style.transform = 'scale(1)';
+                            card.style.background = '';
+                        }, 500);
+                    });
+                } else {
+                    // Placeholder cards
+                    const placeholderIcons = ['📄', '🧾', '📋', '📊', '💼'];
+                    const randomIcon = placeholderIcons[Math.floor(Math.random() * placeholderIcons.length)];
+                    
+                    card.innerHTML = `
+                        <div class="text-lg text-sapphire/40">${randomIcon}</div>
+                        <div class="text-platinum/30 text-[8px]">Evidence ${i + 1}</div>
+                    `;
+                    
+                    card.style.opacity = '0.3';
+                }
+                
+                receiptGrid.appendChild(card);
+            }
+            
+            // Enable process all button when receipts are loaded
+            processAllBtn.disabled = false;
+            processAllBtn.addEventListener('click', () => {
+                processAllReceipts();
+            });
+        }
+        
+        function processAllReceipts() {
+            const cards = document.querySelectorAll('.receipt-card');
+            const processAllBtn = document.getElementById('processAllBtn');
+            
+            processAllBtn.textContent = 'Processing All Evidence...';
+            processAllBtn.disabled = true;
+            
+            // Animate all cards sequentially
+            cards.forEach((card, index) => {
+                if (index < sampleReceipts.length) {
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1.05)';
+                        card.style.background = 'linear-gradient(145deg, rgba(30, 64, 175, 0.4), rgba(15, 23, 42, 0.9))';
+                        card.style.boxShadow = '0 0 20px rgba(30, 64, 175, 0.6)';
+                        
+                        setTimeout(() => {
+                            card.style.transform = 'scale(1)';
+                            card.style.background = '';
+                            card.style.boxShadow = '';
+                        }, 300);
+                    }, index * 50);
+                }
+            });
+            
+            // Load all sample data after animation
+            setTimeout(() => {
+                expenses = [...sampleReceipts];
+                updateSummary();
+                updateWeeklyAnalytics();
+                updateExpenseList();
+                
+                processAllBtn.textContent = '✅ All Evidence Processed';
+                setTimeout(() => {
+                    processAllBtn.textContent = '📸 Process All Evidence Simultaneously';
+                    processAllBtn.disabled = false;
+                }, 3000);
+            }, sampleReceipts.length * 50 + 500);
+        }
+
+        // Update demo functionality
+        demoBtn.addEventListener('click', () => {
+            demoModal.classList.remove('hidden');
+            // Update demo content for computational machine learning theme
+            demoContent.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-semibold text-sapphire mb-4">Mr. Souran #BusinessAssetKeeper</h3>
+                    <p class="text-platinum/80 mb-6">Advanced Computational Machine Learning for Executive Asset Intelligence. We observed manual receipt processing - now deploying 10x computational power for bulk analysis.</p>
+                    <button id="startDemo" class="sapphire-gradient text-crystal font-bold py-3 px-6 rounded-lg">Deploy Intelligence</button>
+                </div>
+            `;
+            
+            document.getElementById('startDemo').addEventListener('click', () => {
+                demoModal.classList.add('hidden');
+                generateReceiptGrid();
+                // Auto-load samples for demo
+                setTimeout(() => {
+                    processAllReceipts();
+                }, 1000);
+            });
+        });
+
+        // Grid toggle functionality
+        let gridVisible = false;
+        
+        gridToggle.addEventListener('click', () => {
+            gridVisible = !gridVisible;
+            gridToggle.classList.toggle('active');
+            
+            if (gridVisible) {
+                gridContainer.classList.remove('hidden');
+                gridDescription.classList.add('hidden');
+            } else {
+                gridContainer.classList.add('hidden');
+                gridDescription.classList.remove('hidden');
+            }
+        });
+
+        // Splash screen unlock functionality
+        const unlockBtn = document.getElementById('unlockBtn');
+        const splashScreen = document.getElementById('splashScreen');
+        const mainApp = document.getElementById('mainApp');
+
+        unlockBtn.addEventListener('click', () => {
+            // Animate unlock
+            unlockBtn.style.transform = 'scale(0.95)';
+            unlockBtn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                // Fade out splash screen
+                splashScreen.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+                splashScreen.style.opacity = '0';
+                splashScreen.style.transform = 'scale(1.1)';
+                
+                setTimeout(() => {
+                    // Hide splash and show main app
+                    splashScreen.classList.add('hidden');
+                    mainApp.classList.remove('hidden');
+                    document.body.style.overflow = 'auto';
+                    
+                    // Initialize main app
+                    updateSummary();
+                    updateWeeklyAnalytics();
+                    updateExpenseList();
+                    generateReceiptGrid();
+                }, 1000);
+            }, 200);
+        });
+
+        // Alternative unlock methods
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                if (!splashScreen.classList.contains('hidden')) {
+                    unlockBtn.click();
+                }
+            }
+        });
+
+        // Auto-unlock after 10 seconds (optional)
+        setTimeout(() => {
+            if (!splashScreen.classList.contains('hidden')) {
+                unlockBtn.click();
+            }
+        }, 10000);
+    </script>
+    </div> <!-- Close mainApp div -->
+</body>
+</html>
